@@ -9,81 +9,136 @@ class SplashScreenUi extends StatefulWidget {
 }
 
 class _SplashScreenUiState extends State<SplashScreenUi> {
+
   @override
-    void initState(){
+  /*void initState() {
+    super.initState();
+
     Future.delayed(
-      Duration(seconds: 3),
-      (){
+      const Duration(seconds: 3),
+      () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeUi(),
+            builder: (context) => const HomeUi(),
           ),
-          );
-      }
+        );
+      },
     );
-  }
+  }*/
+
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-  body: Container(
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage("assets/images/images2.png"),
-        fit: BoxFit.cover,
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/im2.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+              /// โลโก้
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.yellowAccent.withOpacity(0.5),
+                      blurRadius: 25,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  "assets/images/images5.png",
+                  width: 140,
+                ),
+              ),
+
+              const SizedBox(height: 80),
+
+              /// ข้อความหลัก
+              const Text(
+                'THAI HOTLINE APP',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 42,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFFF176),
+                  shadows: [
+                    Shadow(
+                      blurRadius: 20,
+                      color: Colors.yellowAccent,
+                      offset: Offset(0, 0),
+                    ),
+                    Shadow(
+                      blurRadius: 40,
+                      color: Colors.orangeAccent,
+                      offset: Offset(0, 0),
+                    ),
+                    Shadow(
+                      blurRadius: 8,
+                      color: Colors.black,
+                      offset: Offset(3, 3),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              /// ข้อความรอง
+              const Text(
+                'สายด่วน',
+                style: TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFFF176),
+                  shadows: [
+                    Shadow(
+                      blurRadius: 18,
+                      color: Colors.yellowAccent,
+                      offset: Offset(0, 0),
+                    ),
+                    Shadow(
+                      blurRadius: 30,
+                      color: Colors.orangeAccent,
+                      offset: Offset(0, 0),
+                    ),
+                    Shadow(
+                      blurRadius: 6,
+                      color: Colors.black,
+                      offset: Offset(2, 2),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 60),
+
+              /// Loading
+              const CircularProgressIndicator(),
+
+              const SizedBox(height: 10),
+
+              const Text(
+                "Loading...",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black54,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-    ),
-    child: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          Image.asset(
-            "assets/images/images1.png",
-            width: 180,
-          ),
-
-          SizedBox(height: 20),
-
-          Text(
-            'THAI HOTLINE APP',
-            style: TextStyle(
-              fontSize: 45,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255,238,0,0),
-            ),
-          ),
-
-          SizedBox(height: 5),
-
-          Text(
-            'สายด่วน',
-            style: TextStyle(
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255,238,0,0),
-            ),
-          ),
-
-          SizedBox(height: 50),
-
-          CircularProgressIndicator(
-            color: Color.fromARGB(255,51,0,0),
-          ),
-
-          SizedBox(height: 10),
-
-          Text(
-            "Loading...",
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black54,
-            ),
-          ),
-        ],
-      ),
-    ),
-  ),
-);
+    );
   }
 }
