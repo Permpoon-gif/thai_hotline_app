@@ -9,7 +9,6 @@ class SplashScreenUi extends StatefulWidget {
 }
 
 class _SplashScreenUiState extends State<SplashScreenUi> {
-
   @override
   void initState() {
     super.initState();
@@ -34,7 +33,7 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/im2.png"),
+            image: AssetImage("assets/images/im02.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -42,7 +41,6 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               /// โลโก้
               Container(
                 padding: const EdgeInsets.all(10),
@@ -120,14 +118,12 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
                   ],
                 ),
               ),
-
-              const SizedBox(height: 60),
+              const SizedBox(height: 40),
 
               /// Loading
+              
               const CircularProgressIndicator(),
-
-              const SizedBox(height: 10),
-
+              const SizedBox(height: 40),
               const Text(
                 "Loading...",
                 style: TextStyle(
