@@ -9,114 +9,138 @@ class SubAHomeUi extends StatefulWidget {
 }
 
 class _SubAHomeUiState extends State<SubAHomeUi> {
+
+  List<Map<String, String>> hotline = [
+    {"img":"assets/images/h1.png","num":"1146","name":"กรมทางหลวงชนบท"},
+    {"img":"assets/images/h2.png","num":"1155","name":"ตำรวจท่องเที่ยว"},
+    {"img":"assets/images/h3.png","num":"1193","name":"ตำรวจทางหลวง"},
+    {"img":"assets/images/h4.png","num":"1197","name":"ข้อมูลจราจร"},
+    {"img":"assets/images/h5.png","num":"1348","name":"ขสมก."},
+    {"img":"assets/images/h6.png","num":"1490","name":"บขส."},
+    {"img":"assets/images/h7.png","num":"1543","name":"เส้นทางทางด่วน"},
+    {"img":"assets/images/h8.png","num":"1586","name":"กรมทางหลวง"},
+    {"img":"assets/images/h9.png","num":"1690","name":"การรถไฟแห่งประเทศไทย"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-    
+
       body: Container(
         width: double.infinity,
         height: double.infinity,
+
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/im2.png"),
             fit: BoxFit.cover,
           ),
         ),
+
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                const Text(
-                  'สายด่วน\nการเดินทาง',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+          child: Column(
+            children: [
+
+              const SizedBox(height: 20),
+
+              const Text(
+                "สายด่วน\nการเดินทาง",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.25),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: const Icon(
-                    Icons.directions_car,
+              ),
+
+              const SizedBox(height: 20),
+
+              // กล่องรูปด้านบน
+              Container(
+                width: 186,
+                height: 149,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const Center(
+                  child: Icon(
+                    Icons.image,
                     size: 50,
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 25),
-                buildHotlineCard('ข้อมูลจราจร', '1197'),
-                buildHotlineCard('ตำรวจทางหลวง', '1193'),
-                buildHotlineCard('ตำรวจท่องเที่ยว', '1155'),
-                buildHotlineCard('เส้นทางบนทางด่วน', '1543'),
-                const SizedBox(height: 20),
-              ],
-            ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Expanded(
+                child: ListView.builder(
+                  itemCount: hotline.length,
+                  itemBuilder: (context, index) {
+
+                    return Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 6,
+                      ),
+
+                      padding: const EdgeInsets.all(10),
+
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.25),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+
+                      child: Row(
+                        children: [
+
+                          Image.asset(
+                            hotline[index]["img"]!,
+                            width: 45,
+                          ),
+
+                          const SizedBox(width: 10),
+
+                          Text(
+                            hotline[index]["num"]!,
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+
+                          const SizedBox(width: 10),
+
+                          Expanded(
+                            child: Text(
+                              hotline[index]["name"]!,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+
+                          const Icon(
+                            Icons.phone,
+                            color: Colors.white,
+                          )
+                        ],
+                      ),
+                    );
+
+                  },
+                ),
+              ),
+
+            ],
           ),
         ),
       ),
     );
   }
-
-  Widget buildHotlineCard(String title, String number) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.25),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 45,
-            height: 45,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: const Icon(
-              Icons.phone,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(width: 15),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ),
-                Text(
-                  number,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Icon(
-            Icons.call,
-            color: Colors.white,
-          ),
-        ],
-      ),
-    );
-  }
 }
+
