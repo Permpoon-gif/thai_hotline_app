@@ -41,7 +41,6 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              /// โลโก้
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -59,10 +58,7 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
                   width: 140,
                 ),
               ),
-
               const SizedBox(height: 80),
-
-              /// ข้อความหลัก
               const Text(
                 'THAI HOTLINE APP',
                 textAlign: TextAlign.center,
@@ -89,10 +85,7 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
                   ],
                 ),
               ),
-
               const SizedBox(height: 10),
-
-              /// ข้อความรอง
               const Text(
                 'สายด่วน',
                 style: TextStyle(
@@ -119,9 +112,6 @@ class _SplashScreenUiState extends State<SplashScreenUi> {
                 ),
               ),
               const SizedBox(height: 40),
-
-              /// Loading
-              
               const CircularProgressIndicator(),
               const SizedBox(height: 40),
               const Text(

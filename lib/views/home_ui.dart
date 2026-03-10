@@ -13,7 +13,6 @@ class HomeUi extends StatefulWidget {
 }
 
 class _HomeUiState extends State<HomeUi> {
-
   int currentIndexStatus = 0;
 
   List<Widget> showBody = [
@@ -31,10 +30,28 @@ class _HomeUiState extends State<HomeUi> {
         centerTitle: true,
         title: const Text(
           'สายด่วน THAILAND',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+                    fontSize: 24,
+                    color: Color(0xFFFFF176),
+                    shadows: [
+                      Shadow(
+                        blurRadius: 20,
+                        color: Colors.yellowAccent,
+                        offset: Offset(0, 0),
+                      ),
+                      Shadow(
+                        blurRadius: 40,
+                        color: Colors.orangeAccent,
+                        offset: Offset(0, 0),
+                      ),
+                      Shadow(
+                        blurRadius: 8,
+                        color: Colors.black,
+                        offset: Offset(3, 3),
+                      ),
+                    ],
+                  ),
         ),
-
-        // 🔹 ไอคอนมุมขวา
         actions: [
           IconButton(
             icon: const Icon(Icons.info_outline, color: Colors.white),
@@ -49,20 +66,16 @@ class _HomeUiState extends State<HomeUi> {
           )
         ],
       ),
-
       body: showBody[currentIndexStatus],
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndexStatus,
         selectedItemColor: const Color.fromARGB(255, 143, 70, 245),
         unselectedItemColor: Colors.grey,
-
         onTap: (value) {
           setState(() {
             currentIndexStatus = value;
           });
         },
-
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.phone),
