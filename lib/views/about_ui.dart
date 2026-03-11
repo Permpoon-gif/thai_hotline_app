@@ -149,7 +149,7 @@ class _AboutUiState extends State<AboutUi> {
                 ),
                 const SizedBox(height: 15),
                 const Text(
-                  "ชั้นปีนักศึกษา : ปี3",
+                  "อีเมล์นักศึกษา : s6619410020@sau.ac.th",
                   style: TextStyle(
                     fontSize: 24,
                     color: Color(0xFFFFF176),
@@ -172,6 +172,8 @@ class _AboutUiState extends State<AboutUi> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 15),
+                
                 const SizedBox(height: 15),
                 const Text(
                   "ชื่อสาขาวิชา : วิศวะคอมพิวเตอร์",
